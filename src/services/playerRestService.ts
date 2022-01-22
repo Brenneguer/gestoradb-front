@@ -59,7 +59,7 @@ async function deletePlayer(player: Player) {
 }
 
 const playerIdValido = (id: any) => {
-    if (id === undefined || 0) {
+    if (id === undefined || id === 0) {
         return false;
     }
     return true;
