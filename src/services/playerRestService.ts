@@ -11,6 +11,7 @@ export type Player = {
 }
 
 async function findPlayerById(id: number) {
+    if (!playerIdValido(id)) return;
     const user = await axios({
         method: 'GET',
         url: `${url}/players/${id}`
@@ -25,7 +26,6 @@ async function findAllPlayersByIdUnity(idUnity: number) {
         params: { unity: idUnity }
     }).then((response) => response.data)
         .catch((error) => console.log(error.data))
-
     return players;
 }
 
@@ -50,10 +50,12 @@ async function updatePlayer(player: Player) {
 }
 
 async function deletePlayer(player: Player) {
+    if (!playerIdValido(player.id)) return;
     const response = axios({
         method: 'DELETE',
         url: `${url}/players/${player.id}`
     })
+    return response;
 }
 
 const playerIdValido = (id: any) => {
