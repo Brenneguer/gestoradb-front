@@ -3,7 +3,7 @@ import axios from 'axios';
 const url = process.env.REACT_APP_SERVER_URL;
 export type Unity = {
     id?: string | number | undefined;
-    nome: string;
+    name: string;
     description: string;
 }
 
@@ -14,7 +14,7 @@ async function findUnityById(id: string | number) : Promise<Unity> {
   }).then((response) => response.data);
 }
 
-async function findAllUnities() {
+async function findAllUnities() : Promise<Unity[]> {
   return axios({
     method: 'GET',
     url: `${url}/unities`,
