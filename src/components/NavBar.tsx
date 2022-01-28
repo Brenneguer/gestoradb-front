@@ -3,10 +3,21 @@ import { Navbar } from 'react-bootstrap';
 
 import '../styles/navBar.css';
 
-export function NavBar() {
+type NavBarProps = {
+  title?: string,
+}
+
+const defaultProps = {
+  title: '',
+};
+
+NavBar.defaultProps = defaultProps;
+
+export function NavBar(props: NavBarProps) {
+  const { title } = props;
   return (
     <Navbar bg="primary" variant="dark">
-      <Navbar.Brand className="navTitle">Gestor Adb</Navbar.Brand>
+      <Navbar.Brand className="navTitle">{`Gestor Adb/${title}`}</Navbar.Brand>
     </Navbar>
   );
 }
