@@ -1,0 +1,21 @@
+.unities {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    size: 10px;
+    border: 2px #959494AF none;
+    transition: border, background-color 2s;
+}
+
+.unities:hover {
+    border: 2px #959494AF solid;
+    transition: border, background-color 2s;
+    transition-delay: initial;
+}
+
+.unities button {
+    width: 10%;
+}
