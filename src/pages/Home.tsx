@@ -18,7 +18,7 @@ export function Home() {
       setUnities(response);
     }
     if (unities.length === 0) {
-      findUnities();
+      findUnities().then();
     }
   });
 
