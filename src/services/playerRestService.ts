@@ -6,7 +6,7 @@ const url = process.env.REACT_APP_SERVER_URL;
 export type Player = {
     id?: string | number | undefined;
     nick: string;
-    birth: Date;
+    birth: string;
     bio: string;
     unity: Unity;
 }
@@ -18,13 +18,12 @@ async function findPlayerById(id: number) : Promise<Player> {
   }).then((response) => response.data);
 }
 
-async function findAllPlayersByIdUnity(idUnity: number) : Promise<Player> {
+async function findAllPlayersByIdUnity(idUnity: string | number | undefined) : Promise<Player[]> {
   return axios({
     method: 'GET',
     url: `${url}/players`,
     params: { unity: idUnity },
-  }).then((response) => response.data)
-    .catch((error) => console.log(error.data));
+  }).then((response) => response.data);
 }
 
 async function createPlayer(player: Player) : Promise<Player> {
